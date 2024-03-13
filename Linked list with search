@@ -1,0 +1,106 @@
+import java.util.*;
+public class Main
+{
+    static class node 
+    {
+        int data;
+        node next;
+        
+        node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+    static node head;
+    static void add(int d)
+    {
+        node n=new node(d);
+        if(head==null)
+        head=n;
+        else{
+            node temp=head;
+            while(temp.next!=null)
+            temp=temp.next;
+            temp.next=n;
+        }
+    }
+    static void dis()
+    {
+        node temp=head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+    static void insmid(int p,int v)
+    {
+        node n=new node(v);
+        node temp=head;
+        node pre=null;
+        if(p==temp.data)
+        {
+            n.next=temp.next;
+            temp.next=n;
+        }
+        else{
+         while(temp.next!=null)
+         {
+             pre=temp;
+             if(temp.data==p)
+              break;
+             temp=temp.next;
+             
+         }
+         n.next=temp.next;
+         pre.next=n;
+         
+        }
+    }
+    static void del(int b)
+    {
+        node temp=head;
+        node pre=null;
+        if(temp.data==b)
+        head=temp.next;
+        else{
+        while(temp.next!=null && temp.data!=b)
+        {
+            pre=temp;
+            temp=temp.next;
+        }
+        pre.next=temp.next;
+    }
+    }
+    static void srh(int d)
+    {
+        node temp=head;
+        int k=0;
+        while(temp.next!=null)
+        {
+            if(temp.data==d)
+            k=1;
+            temp=temp.next;
+        }
+        System.out.println(k==0?"no":"yes");
+    }
+	public static void main(String[] args) {
+    Scanner s=new Scanner(System.in);
+    int a=s.nextInt();
+    while(a!=0){
+    add(a);
+    a=s.nextInt();
+    }
+    dis();
+    int p=s.nextInt();
+    int v=s.nextInt();
+    insmid(p,v);
+    dis();
+    int b=s.nextInt();
+    del(b);
+    dis();
+    int c=s.nextInt();
+    srh(c);
+	}
+}
