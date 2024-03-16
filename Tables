@@ -1,0 +1,14 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.print("Choose a table:");
+	    int n=sc.nextInt();
+	    System.out.print("How many times do u want?");
+	     int n1=sc.nextInt();
+	    for(int i=1;i<=n1;i++){
+	          System.out.println(i+" * " +n +" = "+i*n);
+	    }
+	}
+}
