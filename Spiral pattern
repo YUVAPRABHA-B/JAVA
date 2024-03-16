@@ -1,0 +1,39 @@
+public class Main {
+    public static void main(String[] args) {
+        int size =7;
+        int[][] spiral = generateSpiral(size);//5
+        for (int i=0;i<size;i++) {
+            for (int j=0;j<size;j++) {
+                System.out.print(spiral[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+   public static int[][] generateSpiral(int size) {
+        int[][]s= new int[size][size];//5 5
+        int v= 1;
+        int r = 0;
+        int c = 0;
+        int mr = size - 1;
+        int mc = size - 1;
+        while (v<= size*size) {
+            for (int i=c;i<=mc;i++) {
+                spiral[r][i] = v++;
+            }
+            r++;//1
+            for (int i=r;i<=mr;i++) {
+                s[i][mc]=v++;//
+            }
+            mc--;
+            for (int i=mc;i>=c;i--) {
+                s[mr][i]=v++;
+            }
+            mr--;
+            for (int i=mr;i>=r;i--) {
+                s[i][c]=v++;
+            }
+            c++;
+        }
+        return s;
+    }
+}
